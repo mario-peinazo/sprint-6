@@ -47,3 +47,10 @@ export const InicioBtn = styled.button `
         background-color: #e9e7e7;
     }
 `
+
+export const Historia = styled.div `
+    width: 100vw;
+    height: 100vh;
+    background-image: ${props => `url(${props.background})`};
+    background-size: cover;
+`
