@@ -1,7 +1,8 @@
 import Escena from "./components/Escena/Escena";
-import data from './data.json';
+import data from './data';
 import {Botones, Boton} from './components/styled';
 import {useRef, useState, useEffect} from "react";
+import Bienvenida from "./components/Bienvenida/Bienvenida";
 
 
 function App() {
@@ -14,17 +15,21 @@ function App() {
   const atras = () => {setValue(value <= 1 ? 4 : value-1)};
 
   return (
-    <div>
-      <Botones>
-        <Boton onClick={atras}>Anterior</Boton>
-        <Boton onClick={alante}>Següent</Boton>
-      </Botones>
+    <>
+      <Bienvenida/>
 
-      {datos.map((object) => 
-        <Escena fondo={object.id == value ? true : false}>
-          {object.texto}
-        </Escena>)}
-   </div>
+      <>
+        <Botones>
+          <Boton onClick={atras}>Anterior</Boton>
+          <Boton onClick={alante}>Següent</Boton>
+        </Botones>
+
+        {datos.map((object) => 
+          <Escena fondo={object.id == value ? true : false}>
+            {object.texto}
+          </Escena>)}
+      </>
+   </>
   )
 }
 
